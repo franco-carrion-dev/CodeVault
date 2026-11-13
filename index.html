@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeVault | Gestor de Snippets para Desarrolladores</title>
+    <!-- Tipografías legibles con jerarquía visual -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Los dos archivos CSS requeridos -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Code<span>Vault</span>_</a>
+            
+            <!-- Truco CSS para Menú Hamburguesa sin JS -->
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="hamburger-btn" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="#problema">El Problema</a></li>
+                    <li><a href="#funciones">Soluciones</a></li>
+                    <li><a href="#planes">Planes</a></li>
+                    <li><a href="registro.html" class="btn btn-primary">Crear Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content">
+                <span class="badge">Productividad para Devs v2.0</span>
+                <h1>Deja de perder tiempo buscando ese comando o snippet que ya habías escrito.</h1>
+                <p>El 70% de los desarrolladores pierden hasta 4 horas a la semana buscando bloques de código, configuraciones o consultas SQL en archivos de texto desordenados. Centraliza todo en segundos.</p>
+                <div class="hero-btns">
+                    <a href="registro.html" class="btn btn-primary">Probar Gratis Ahora</a>
+                    <a href="#problema" class="btn btn-outline">Ver cómo funciona</a>
+                </div>
+            </div>
+
+            <div class="hero-visual glass-card">
+                <div class="code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="filename">conexion_db.snippet</span>
+                </div>
+                <pre><code>// Guardado en CodeVault - Etiqueta: #Backend #SQL
+const pool = new Pool({
+  host: 'localhost',
+  user: 'dev_admin',
+  max: 20,
+  idleTimeoutMillis: 30000
+});
+// Copiado al portapapeles con Ctrl + Shift + V</code></pre>
+            </div>
+        </section>
+
+        <!-- Sección El Problema y Solución -->
+        <section id="problema" class="section container">
+            <div class="section-header">
+                <h2>¿Por qué necesitas centralizar tu código?</h2>
+                <p>Resolvemos la fragmentación de información técnica durante tus proyectos.</p>
+            </div>
+
+            <div class="grid-cards">
+                <article class="glass-card feature-card">
+                    <div class="icon-box">01</div>
+                    <h3>Caos en archivos locales</h3>
+                    <p>Olvídate de tener veinte archivos llamados <code>notas_final.txt</code> en tu escritorio con comandos de Git o Docker que nunca encuentras a tiempo.</p>
+                </article>
+
+                <article class="glass-card feature-card" id="funciones">
+                    <div class="icon-box">02</div>
+                    <h3>Búsqueda instantánea</h3>
+                    <p>Filtra tus bloques de código por lenguaje, proyecto o etiqueta en menos de 50 milisegundos desde cualquier navegador o dispositivo móvil.</p>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="icon-box">03</div>
+                    <h3>Sincronización segura</h3>
+                    <p>Tus scripts, plantillas HTML/CSS y consultas están cifrados de extremo a extremo, listos para cuando cambies de computadora.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección Tabla Comparativa (Principio básico HTML) -->
+        <section id="planes" class="section container">
+            <div class="section-header">
+                <h2>Comparativa de Planes</h2>
+                <p>Elige la opción que mejor se adapte a tu flujo de trabajo.</p>
+            </div>
+
+            <div class="table-responsive glass-card">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Plan Estudiante (Gratis)</th>
+                            <th>Plan Pro Dev ($4/mes)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Snippets almacenados</td>
+                            <td>Hasta 50 bloques</td>
+                            <td>Ilimitados</td>
+                        </tr>
+                        <tr>
+                            <td>Etiquetas personalizadas</td>
+                            <td>Máximo 5</td>
+                            <td>Ilimitadas</td>
+                        </tr>
+                        <tr>
+                            <td>Acceso offline móvil</td>
+                            <td>No incluido</td>
+                            <td>Incluido</td>
+                        </tr>
+                        <tr>
+                            <td>Exportación a GitHub Gist</td>
+                            <td>Manual</td>
+                            <td>Automática</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <a href="index.html" class="logo">Code<span>Vault</span>_</a>
+                <p>Diseñado bajo principios de usabilidad, minimalismo y glassmorphism.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="registro.html">Registro</a>
+                <a href="#problema">Problemática</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
