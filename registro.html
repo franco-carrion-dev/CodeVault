@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro | CodeVault</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="pages.css">
 </head>
@@ -12,7 +12,7 @@
 
     <header class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Code<span>Vault</span>_</a>
+            <a href="index.html" target="_self" class="logo">Code<span>Vault</span>_</a>
             
             <input type="checkbox" id="menu-toggle" class="menu-checkbox">
             <label for="menu-toggle" class="hamburger-btn" aria-label="Abrir menú">
@@ -21,12 +21,14 @@
                 <span class="bar"></span>
             </label>
 
-            <nav class="nav-menu">
+            <nav class="nav-menu" aria-label="Menú Principal">
                 <ul class="nav-list">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html#problema">El Problema</a></li>
-                    <li><a href="index.html#planes">Planes</a></li>
-                    <li><a href="registro.html" class="btn btn-primary active">Crear Cuenta</a></li>
+                    <li><a href="index.html" target="_self">Inicio (_self)</a></li>
+                    <li><a href="index.html#problema" target="_self">El Problema</a></li>
+                    <li><a href="index.html#galeria" target="_self">Imágenes</a></li>
+                    <li><a href="index.html#demo" target="_self">Video</a></li>
+                    <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub (_blank) ↗</a></li>
+                    <li><a href="registro.html" target="_self" class="btn btn-primary active">Crear Cuenta</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,10 +36,10 @@
 
     <main class="container section">
         <div class="form-wrapper">
-            <div class="form-info">
+            <div class="form-info special-font-section">
                 <span class="badge">Acceso Inmediato</span>
                 <h1>Únete a CodeVault y organiza tu flujo de desarrollo.</h1>
-                <p>Configura tu bóveda personal en menos de un minuto. Sin tarjetas de crédito ni configuraciones complejas.</p>
+                <p>Configura tu bóveda personal en menos de un minuto. Cumplimos con todos los estándares de privacidad.</p>
                 
                 <ul class="benefit-list">
                     <li><strong>✔ Ahorro de tiempo:</strong> Recupera horas de codificación efectiva.</li>
@@ -46,13 +48,13 @@
                 </ul>
             </div>
 
-            <!-- Formulario HTML5 completo -->
+            <!-- FORMULARIO CON SELECT-OPTION, RADIO Y CHECKBOX -->
             <form action="index.html" method="GET" class="glass-card auth-form">
                 <h2>Crear nueva cuenta</h2>
                 
                 <div class="form-group">
                     <label for="nombre">Nombre completo o Alias</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej. DevMaster99" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. FrancoDev" required>
                 </div>
 
                 <div class="form-group">
@@ -60,35 +62,48 @@
                     <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
                 </div>
 
+                <!-- 1. LISTA DESPLEGABLE (SELECT - OPTION) -->
                 <div class="form-group">
-                    <label for="especialidad">Área principal de desarrollo</label>
+                    <label for="especialidad">Área principal de desarrollo (Select - Option)</label>
                     <select id="especialidad" name="especialidad" required>
                         <option value="" disabled selected>Selecciona tu perfil...</option>
-                        <option value="backend">Backend Developer</option>
-                        <option value="frontend">Frontend Developer</option>
+                        <option value="backend">Backend Developer (.NET / Java / SQL)</option>
+                        <option value="frontend">Frontend Developer (React / CSS)</option>
                         <option value="fullstack">Full-Stack Developer</option>
-                        <option value="estudiante">Estudiante de Ingeniería / Software</option>
+                        <option value="estudiante">Estudiante de Ingeniería</option>
                     </select>
                 </div>
 
-                <fieldset class="form-group fieldset-radio">
-                    <legend>Plan elegido</legend>
-                    <label class="radio-label">
-                        <input type="radio" name="plan" value="gratis" checked> Estudiante (Gratis)
+                <!-- 2. BOTONES DE OPCIÓN (RADIO) -->
+                <fieldset class="form-group fieldset-box">
+                    <legend>Plan elegido (Radio Buttons)</legend>
+                    <label class="option-label">
+                        <input type="radio" name="plan" value="gratis" checked> Plan Estudiante (Gratis)
                     </label>
-                    <label class="radio-label">
-                        <input type="radio" name="plan" value="pro"> Pro Dev
+                    <label class="option-label">
+                        <input type="radio" name="plan" value="pro"> Plan Pro Dev ($4/mes)
                     </label>
                 </fieldset>
 
-                <div class="form-group">
-                    <label for="problema_actual">¿Qué es lo que más te cuesta organizar hoy? (Opcional)</label>
-                    <textarea id="problema_actual" name="problema_actual" rows="3" placeholder="Ej. Comandos de terminal, consultas de base de datos..."></textarea>
-                </div>
+                <!-- 3. CASILLAS DE VERIFICACIÓN (CHECKBOX) -->
+                <fieldset class="form-group fieldset-box">
+                    <legend>Lenguajes que más utilizas (Checkboxes)</legend>
+                    <label class="option-label">
+                        <input type="checkbox" name="lenguajes" value="csharp" checked> C# / .NET
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="lenguajes" value="js"> HTML / CSS / JS
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="lenguajes" value="sql"> SQL Server / PostgreSQL
+                    </label>
+                </fieldset>
 
                 <div class="form-group checkbox-group">
                     <input type="checkbox" id="terminos" required>
-                    <label for="terminos">Acepto los términos de uso y la política de privacidad.</label>
+                    <label for="terminos">
+                        Acepto la <a href="https://www.minjus.gob.pe/wp-content/uploads/2013/04/LEY-29733.pdf" target="_blank" rel="noopener noreferrer" class="inline-link">Ley de Protección de Datos Personales (PDF)</a>.
+                    </label>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block">Registrarme y Crear Bóveda</button>
@@ -96,14 +111,18 @@
         </div>
     </main>
 
+    <!-- PIE DE PÁGINA CON PDF DE LEY DE PROTECCIÓN DE DATOS -->
     <footer class="footer">
         <div class="container footer-content">
             <div>
-                <a href="index.html" class="logo">Code<span>Vault</span>_</a>
-                <p>Proyecto demostrativo de diseño web y móvil.</p>
+                <a href="index.html" target="_self" class="logo">Code<span>Vault</span>_</a>
+                <p>© 2026 CodeVault. Todos los derechos reservados.</p>
             </div>
             <div class="footer-links">
-                <a href="index.html">Volver al Inicio</a>
+                <a href="index.html" target="_self">Volver al Inicio (_self)</a>
+                <a href="https://www.minjus.gob.pe/wp-content/uploads/2013/04/LEY-29733.pdf" target="_blank" rel="noopener noreferrer" class="pdf-link">
+                    📄 Ley de Protección de Datos Personales (PDF) ↗
+                </a>
             </div>
         </div>
     </footer>

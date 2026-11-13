@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeVault | Gestor de Snippets para Desarrolladores</title>
-    <!-- Tipografías legibles con jerarquía visual -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Los dos archivos CSS requeridos -->
+    <!-- Google Fonts: Inter (General), Space Grotesk (Sección Problema) y Fira Code (Código) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- 2 Hojas de estilo -->
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="pages.css">
 </head>
 <body>
 
+    <!-- MENÚ HORIZONTAL + MENÚ HAMBURGUESA -->
     <header class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Code<span>Vault</span>_</a>
+            <a href="index.html" target="_self" class="logo">Code<span>Vault</span>_</a>
             
-            <!-- Truco CSS para Menú Hamburguesa sin JS -->
             <input type="checkbox" id="menu-toggle" class="menu-checkbox">
             <label for="menu-toggle" class="hamburger-btn" aria-label="Abrir menú">
                 <span class="bar"></span>
@@ -24,130 +24,183 @@
                 <span class="bar"></span>
             </label>
 
-            <nav class="nav-menu">
+            <nav class="nav-menu" aria-label="Menú Principal Horizontal">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="#problema">El Problema</a></li>
-                    <li><a href="#funciones">Soluciones</a></li>
-                    <li><a href="#planes">Planes</a></li>
-                    <li><a href="registro.html" class="btn btn-primary">Crear Cuenta</a></li>
+                    <li><a href="index.html" target="_self" class="active">Inicio</a></li>
+                    <li><a href="#problema" target="_self">El Problema</a></li>
+                    <li><a href="#galeria" target="_self">Imágenes</a></li>
+                    <li><a href="#demo" target="_self">Video</a></li>
+                    <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+                    <li><a href="registro.html" target="_self" class="btn btn-primary">Crear Cuenta</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero container">
-            <div class="hero-content">
-                <span class="badge">Productividad para Devs v2.0</span>
-                <h1>Deja de perder tiempo buscando ese comando o snippet que ya habías escrito.</h1>
-                <p>El 70% de los desarrolladores pierden hasta 4 horas a la semana buscando bloques de código, configuraciones o consultas SQL en archivos de texto desordenados. Centraliza todo en segundos.</p>
-                <div class="hero-btns">
-                    <a href="registro.html" class="btn btn-primary">Probar Gratis Ahora</a>
-                    <a href="#problema" class="btn btn-outline">Ver cómo funciona</a>
-                </div>
-            </div>
+    <!-- LAYOUT CON MENÚ VERTICAL + CONTENIDO PRINCIPAL -->
+    <div class="container main-layout">
+        
+        <!-- MENÚ VERTICAL (SIDEBAR) -->
+        <aside class="vertical-sidebar glass-card">
+            <h2 class="sidebar-title">Navegación Vertical</h2>
+            <nav aria-label="Menú Secundario Vertical">
+                <ul class="vertical-nav-list">
+                    <li><a href="#inicio" target="_self">▸ Propósito</a></li>
+                    <li><a href="#problema" target="_self">▸ Problemática</a></li>
+                    <li><a href="#galeria" target="_self">▸ Sección de Imagen</a></li>
+                    <li><a href="#demo" target="_self">▸ Sección de Video</a></li>
+                    <li><a href="#planes" target="_self">▸ Tabla de Planes</a></li>
+                    <li><a href="registro.html" target="_self">▸ Ir al Formulario (_self)</a></li>
+                    <li><a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener noreferrer">▸ Docs MDN (_blank) ↗</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-            <div class="hero-visual glass-card">
-                <div class="code-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="filename">conexion_db.snippet</span>
+        <main class="content-area">
+            <!-- HERO: PROPÓSITO Y PROBLEMA QUE RESUELVE -->
+            <section id="inicio" class="hero">
+                <div class="hero-content">
+                    <span class="badge">Propósito del Proyecto</span>
+                    <h1>Deja de perder tiempo buscando ese snippet o comando que ya habías escrito.</h1>
+                    <p><strong>Problema que resuelve:</strong> El 70% de los desarrolladores y estudiantes pierden hasta 4 horas semanales buscando bloques de código, consultas SQL o comandos Git en archivos de texto desordenados. CodeVault centraliza y etiqueta tu código en un solo lugar.</p>
+                    <div class="hero-btns">
+                        <!-- Enlace con target="_self" -->
+                        <a href="registro.html" target="_self" class="btn btn-primary">Probar Gratis (_self)</a>
+                        <!-- Enlace con target="_blank" -->
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver Repositorio (_blank) ↗</a>
+                    </div>
                 </div>
-                <pre><code>// Guardado en CodeVault - Etiqueta: #Backend #SQL
+
+                <div class="hero-visual glass-card">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="filename">conexion_sql.snippet</span>
+                    </div>
+                    <pre><code>// Guardado en CodeVault - Etiqueta: #Backend #SQL
 const pool = new Pool({
   host: 'localhost',
   user: 'dev_admin',
-  max: 20,
-  idleTimeoutMillis: 30000
-});
-// Copiado al portapapeles con Ctrl + Shift + V</code></pre>
-            </div>
-        </section>
+  max: 20
+});</code></pre>
+                </div>
+            </section>
 
-        <!-- Sección El Problema y Solución -->
-        <section id="problema" class="section container">
-            <div class="section-header">
-                <h2>¿Por qué necesitas centralizar tu código?</h2>
-                <p>Resolvemos la fragmentación de información técnica durante tus proyectos.</p>
-            </div>
+            <!-- SECCIÓN CON FUENTE DIFERENTE DE GOOGLE FONTS (Space Grotesk) -->
+            <section id="problema" class="section special-font-section">
+                <div class="section-header">
+                    <h2>¿Por qué necesitas centralizar tu código?</h2>
+                    <p>Esta sección utiliza la tipografía <strong>Space Grotesk</strong> de Google Fonts para destacar los pilares de solución tecnológica.</p>
+                </div>
 
-            <div class="grid-cards">
-                <article class="glass-card feature-card">
-                    <div class="icon-box">01</div>
-                    <h3>Caos en archivos locales</h3>
-                    <p>Olvídate de tener veinte archivos llamados <code>notas_final.txt</code> en tu escritorio con comandos de Git o Docker que nunca encuentras a tiempo.</p>
-                </article>
+                <div class="grid-cards">
+                    <article class="glass-card feature-card">
+                        <div class="icon-box">01</div>
+                        <h3>Fin al caos en archivos locales</h3>
+                        <p>Olvídate de tener veinte archivos llamados <code>notas_final.txt</code> en tu escritorio con comandos que nunca encuentras a tiempo.</p>
+                    </article>
 
-                <article class="glass-card feature-card" id="funciones">
-                    <div class="icon-box">02</div>
-                    <h3>Búsqueda instantánea</h3>
-                    <p>Filtra tus bloques de código por lenguaje, proyecto o etiqueta en menos de 50 milisegundos desde cualquier navegador o dispositivo móvil.</p>
-                </article>
+                    <article class="glass-card feature-card">
+                        <div class="icon-box">02</div>
+                        <h3>Búsqueda instantánea</h3>
+                        <p>Filtra tus bloques de código por lenguaje, proyecto o etiqueta en menos de 50 milisegundos desde cualquier navegador.</p>
+                    </article>
 
-                <article class="glass-card feature-card">
-                    <div class="icon-box">03</div>
-                    <h3>Sincronización segura</h3>
-                    <p>Tus scripts, plantillas HTML/CSS y consultas están cifrados de extremo a extremo, listos para cuando cambies de computadora.</p>
-                </article>
-            </div>
-        </section>
+                    <article class="glass-card feature-card">
+                        <div class="icon-box">03</div>
+                        <h3>Sincronización multiplataforma</h3>
+                        <p>Accede a tus plantillas HTML, CSS y scripts desde tu laptop o celular con diseño 100% responsive.</p>
+                    </article>
+                </div>
+            </section>
 
-        <!-- Sección Tabla Comparativa (Principio básico HTML) -->
-        <section id="planes" class="section container">
-            <div class="section-header">
-                <h2>Comparativa de Planes</h2>
-                <p>Elige la opción que mejor se adapte a tu flujo de trabajo.</p>
-            </div>
+            <!-- SECCIÓN DE IMAGEN -->
+            <section id="galeria" class="section">
+                <div class="section-header">
+                    <h2>Sección de Imagen: Interfaz del Sistema</h2>
+                    <p>Visualización limpia con modo oscuro para reducir la fatiga visual durante largas sesiones de programación.</p>
+                </div>
 
-            <div class="table-responsive glass-card">
-                <table class="pricing-table">
-                    <thead>
-                        <tr>
-                            <th>Característica</th>
-                            <th>Plan Estudiante (Gratis)</th>
-                            <th>Plan Pro Dev ($4/mes)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Snippets almacenados</td>
-                            <td>Hasta 50 bloques</td>
-                            <td>Ilimitados</td>
-                        </tr>
-                        <tr>
-                            <td>Etiquetas personalizadas</td>
-                            <td>Máximo 5</td>
-                            <td>Ilimitadas</td>
-                        </tr>
-                        <tr>
-                            <td>Acceso offline móvil</td>
-                            <td>No incluido</td>
-                            <td>Incluido</td>
-                        </tr>
-                        <tr>
-                            <td>Exportación a GitHub Gist</td>
-                            <td>Manual</td>
-                            <td>Automática</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
+                <div class="image-grid">
+                    <figure class="glass-card image-card">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Pantalla con código fuente organizado en un editor moderno">
+                        <figcaption>Organización de sintaxis resaltada para más de 40 lenguajes.</figcaption>
+                    </figure>
+                    <figure class="glass-card image-card">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="Desarrollador trabajando con múltiples fragmentos de código">
+                        <figcaption>Entorno centralizado para equipos de desarrollo y estudiantes.</figcaption>
+                    </figure>
+                </div>
+            </section>
 
+            <!-- SECCIÓN DE VIDEO -->
+            <section id="demo" class="section">
+                <div class="section-header">
+                    <h2>Sección de Video: Demostración de Flujo</h2>
+                    <p>Conoce cómo la automatización y el orden mejoran tu velocidad de entrega de software.</p>
+                </div>
+
+                <div class="glass-card video-wrapper">
+                    <video controls preload="metadata" poster="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video HTML5.
+                    </video>
+                </div>
+            </section>
+
+            <!-- TABLA COMPARATIVA -->
+            <section id="planes" class="section">
+                <div class="section-header">
+                    <h2>Comparativa de Planes</h2>
+                    <p>Elige la opción que mejor se adapte a tu flujo de estudio o trabajo.</p>
+                </div>
+
+                <div class="table-responsive glass-card">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Plan Estudiante (Gratis)</th>
+                                <th>Plan Pro Dev ($4/mes)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Snippets almacenados</td>
+                                <td>Hasta 50 bloques</td>
+                                <td>Ilimitados</td>
+                            </tr>
+                            <tr>
+                                <td>Etiquetas personalizadas</td>
+                                <td>Máximo 5</td>
+                                <td>Ilimitadas</td>
+                            </tr>
+                            <tr>
+                                <td>Exportación a GitHub</td>
+                                <td>Manual</td>
+                                <td>Automática</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- PIE DE PÁGINA CON EL PDF DE LA LEY DE PROTECCIÓN DE DATOS -->
     <footer class="footer">
         <div class="container footer-content">
             <div>
-                <a href="index.html" class="logo">Code<span>Vault</span>_</a>
-                <p>Diseñado bajo principios de usabilidad, minimalismo y glassmorphism.</p>
+                <a href="index.html" target="_self" class="logo">Code<span>Vault</span>_</a>
+                <p>© 2026 CodeVault. Prototipo desarrollado con HTML5 y CSS3 puro.</p>
             </div>
             <div class="footer-links">
-                <a href="index.html">Inicio</a>
-                <a href="registro.html">Registro</a>
-                <a href="#problema">Problemática</a>
+                <a href="index.html" target="_self">Inicio (_self)</a>
+                <a href="registro.html" target="_self">Formulario (_self)</a>
+                <a href="https://www.minjus.gob.pe/wp-content/uploads/2013/04/LEY-29733.pdf" target="_blank" rel="noopener noreferrer" class="pdf-link">
+                    📄 Ley de Protección de Datos Personales (PDF) ↗
+                </a>
             </div>
         </div>
     </footer>
